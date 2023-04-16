@@ -58,19 +58,20 @@ resource "aws_key_pair" "generated_key" {
 }
 
 data "aws_ami" "ubuntu" {
-  most_recent = true
 
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20220420"]
-  }
+    most_recent = true
 
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
+    filter {
+        name   = "name"
+        values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+    }
 
-  owners = ["099720109477"] # Canonical
+    filter {
+        name = "virtualization-type"
+        values = ["hvm"]
+    }
+
+    owners = ["099720109477"]
 }
 
 resource "aws_instance" "sde_ec2" {
@@ -113,7 +114,7 @@ echo 'Clone git repo to EC2'
 cd /home/ubuntu && git clone ${var.repo_url}
 
 echo 'CD to data_engineering_project_template directory'
-cd data_engineering_project_template
+cd data_engineering_template
 
 echo 'Start containers & Run db migrations'
 make up
