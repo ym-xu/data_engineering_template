@@ -13,7 +13,7 @@ To use the template, please install the following.
 5. [AWS CLI installed](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) and [configured](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
 6. [Docker](https://docs.docker.com/engine/install/) with at least 4GB of RAM and [Docker Compose](https://docs.docker.com/compose/install/) v1.27.0 or later
 
-* Two import permission policy for your IAM account: 
+Two import permission policy for your IAM account: 
 - AmazonEC2FullAccess 
 - AWSBudgetsActionsWithAWSResourceControlAccess
 
